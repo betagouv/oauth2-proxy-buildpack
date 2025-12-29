@@ -15,7 +15,7 @@ tmp_dir="${tmp_dir%/}"
 mkdir -p "$BUILD_DIR/bin"
 
 echo "downloading oauth2-proxy..."
-wget --no-verbose "https://github.com/oauth2-proxy/oauth2-proxy/releases/download/${OAUTH2_PROXY_VERSION}/oauth2-proxy-${OAUTH2_PROXY_VERSION}.linux-amd64.tar.gz" -O $tmp_dir/oauth2-proxy.tar.gz
+curl -fsSL "https://github.com/oauth2-proxy/oauth2-proxy/releases/download/${OAUTH2_PROXY_VERSION}/oauth2-proxy-${OAUTH2_PROXY_VERSION}.linux-amd64.tar.gz" -o $tmp_dir/oauth2-proxy.tar.gz
 
 echo "$OAUTH2_PROXY_CHECKSUM  $tmp_dir/oauth2-proxy.tar.gz" | sha256sum -c -
 
