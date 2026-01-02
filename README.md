@@ -1,5 +1,7 @@
 # heroku-buildpack-oauth2-proxy
 
+For usage example on scalingo, see https://github.com/betagouv/oauth2-deploy-demo
+
 This buildpack adds authentication against an OAuth2 provider such as
 GitHub or Google to your Heroku application.
 
