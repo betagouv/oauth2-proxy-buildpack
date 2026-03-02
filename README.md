@@ -57,7 +57,7 @@ This is described [here](https://oauth2-proxy.github.io/oauth2-proxy/configurati
 in its documentation.
 
 Optional custom environment variables come with this buildpack:
-- `OAUTH2_ALLOWED_EMAILS`: Emails list to be stored in a file read by OAUTH2_PROXY_AUTHENTICATED_EMAILS_FILE.
+- `OAUTH2_ALLOWED_EMAILS`: Emails list to be stored in a file read by OAUTH2_PROXY_AUTHENTICATED_EMAILS_FILE. ex: `user1@xxx.com,user2@xxx.com`
 
 ## Contributing
 
