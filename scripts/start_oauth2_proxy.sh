@@ -20,5 +20,13 @@ while IFS='=' read -r name value; do
     fi
 done < <(env)
 
+# Generate authenticated emails file if ALLOWED_EMAILS is set
+if [ -n "${OAUTH2_ALLOWED_EMAILS:-}" ]; then
+    EMAILS_FILE="/tmp/allowed_emails.txt"
+    echo "$OAUTH2_ALLOWED_EMAILS" | tr ',' '\n' > "$EMAILS_FILE"
+    export OAUTH2_PROXY_AUTHENTICATED_EMAILS_FILE="$EMAILS_FILE"
+    echo "configured authenticated emails file at $EMAILS_FILE"
+fi
+
 echo "starting oauth2-proxy..."
 exec ./oauth2-proxy
