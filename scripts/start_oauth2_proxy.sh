@@ -23,7 +23,7 @@ done < <(env)
 # Generate authenticated emails file if ALLOWED_EMAILS is set
 if [ -n "${OAUTH2_ALLOWED_EMAILS:-}" ]; then
     EMAILS_FILE="/tmp/allowed_emails.txt"
-    echo "$ALLOWED_EMAILS" | tr ',' '\n' > "$EMAILS_FILE"
+    echo "$OAUTH2_ALLOWED_EMAILS" | tr ',' '\n' > "$EMAILS_FILE"
     export OAUTH2_PROXY_AUTHENTICATED_EMAILS_FILE="$EMAILS_FILE"
     echo "configured authenticated emails file at $EMAILS_FILE"
 fi
