@@ -1,0 +1,23 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update oauth2-proxy version and tarball sha256 in bin/compile",
+      "managerFilePatterns": ["/^bin/compile$/"],
+      "matchStrings": [
+        "OAUTH2_PROXY_VERSION=\"\\$\\{OAUTH2_PROXY_VERSION:=(?<currentValue>[^}\\s]+)\\}\"\\s+OAUTH2_PROXY_CHECKSUM=\"\\$\\{OAUTH2_PROXY_CHECKSUM:=(?<currentDigest>[a-f0-9]{64})\\}\""
+      ],
+      "depNameTemplate": "oauth2-proxy/oauth2-proxy",
+      "datasourceTemplate": "github-release-attachments"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["github-release-attachments"],
+      "matchPackageNames": ["oauth2-proxy/oauth2-proxy"],
+      "commitMessageTopic": "oauth2-proxy"
+    }
+  ]
+}
